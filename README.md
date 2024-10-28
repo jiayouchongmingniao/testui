@@ -1,16 +1,32 @@
-# testui
+# Power0fMoney
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+FlutterFlow projects are built to run on the Flutter _stable_ release.
 
-A few resources to get you started if this is your first Flutter project:
+## Integration Tests
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To test on a real iOS / Android device, first connect the device and run the following command from the root of the project:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter test integration_test/test.dart
+```
+
+To test on a web browser, first launch `chromedriver` as follows:
+```bash
+chromedriver --port=4444
+```
+
+Then from the root of the project, run the following command:
+```bash
+flutter drive \
+  --driver=test_driver/integration_test.dart \
+  --target=integration_test/test.dart \
+  -d chrome
+```
+
+Find more information about running Flutter integration tests [here](https://docs.flutter.dev/cookbook/testing/integration/introduction#5-run-the-integration-test).
+
+Refer to this guide for instructions on running the tests on [Firebase Test Lab](https://github.com/flutter/flutter/tree/main/packages/integration_test#firebase-test-lab).
